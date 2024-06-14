@@ -47,7 +47,7 @@ export const getPosts = async (req, res) => {
       })
       .populate({
         path: "comments.user",
-        select: ["username", "fullName", "profilePic"],
+        select: ["username fullName profilePic"],
       });
     if (posts.length === 0) {
       return res.status(200).json([]);
@@ -152,11 +152,11 @@ export const getLikedPosts = async (req, res) => {
       })
       .populate({
         path: "comments.user",
-        select: ["username", "fullName", "profilePic"],
+        select: ["username fullName profilePic"],
       })
       .populate({
         path: "likes.user",
-        select: ["username", "fullName", "profilePic"],
+        select: ["username fullName profilePic"],
       });
     res.status(200).json(likedPosts);
   } catch (error) {
@@ -182,7 +182,7 @@ export const getFollowingPosts = async (req, res) => {
       })
       .populate({
         path: "comments.user",
-        select: ["username", "fullName", "profilePic"],
+        select: ["username fullName profilePic"],
       });
 
     res.status(200).json(feed);
@@ -208,7 +208,7 @@ export const getUserPosts = async (req, res) => {
       })
       .populate({
         path: "comments.user",
-        select: ["username", "fullName", "profilePic"],
+        select: ["username fullName profilePic"],
       });
 
     res.status(200).json(posts);
